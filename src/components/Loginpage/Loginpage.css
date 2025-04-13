@@ -59,3 +59,10 @@ form > button {
   text-decoration: underline;
   color: white;
 }
+
+.error-text{
+  color: red; 
+  margin: 0;
+  font-size: 11px;
+  text-align: center;
+}

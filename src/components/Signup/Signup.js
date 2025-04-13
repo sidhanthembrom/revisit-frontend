@@ -6,6 +6,7 @@ function Signup() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("jwt_token");
@@ -38,13 +39,16 @@ function Signup() {
         }
       );
       const response = await data.json();
-      setUsername("");
-      setPassword("");
-      // console.log(response);
-      localStorage.setItem("jwt_token", response.jwt_token);
-      navigate("/dashboard");
+      if (data.ok) {
+        setUsername("");
+        setPassword("");
+        localStorage.setItem("jwt_token", response.jwt_token);
+        navigate("/dashboard");
+      } else {
+        setError(response.message);
+      }
     } catch (error) {
-      console.log("Network Error");
+      console.log(error);
     }
   };
 
@@ -65,6 +69,7 @@ function Signup() {
           placeholder="Password"
         />
         <button type="submit">Sign up</button>
+        {error && <p className="error-text">{error}</p>}
       </form>
     </div>
   );

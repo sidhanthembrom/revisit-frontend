@@ -58,6 +58,10 @@ function Dashboard() {
     setTab(optionName);
   };
 
+  const handleAddCategory = () => {
+    navigate('/addCategory')
+  }
+
   return (
     <div className="main-container">
       <Navbar />
@@ -81,7 +85,7 @@ function Dashboard() {
         <div className="right-side">
           <div className="right-side-heading-container">
             <h2>Categories</h2>
-            <button>+ Add Category</button>
+            <button onClick={handleAddCategory}>+ Add Category</button>
           </div>
           <ul className="category-list-container">
             {categories.map((category) => (

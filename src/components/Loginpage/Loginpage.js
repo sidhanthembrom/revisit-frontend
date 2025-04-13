@@ -7,6 +7,7 @@ function App() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("jwt_token");
@@ -39,13 +40,20 @@ function App() {
         }
       );
       const response = await data.json();
-      setUsername("");
-      setPassword("");
-      // console.log(response);
-      localStorage.setItem("jwt_token", response.jwt_token);
-      navigate("/dashboard");
+
+      if (data.ok) {
+        // successful login
+        setUsername("");
+        setPassword("");
+        localStorage.setItem("jwt_token", response.jwt_token);
+        navigate("/dashboard");
+      } else {
+        // login fails
+        // console.log(response.message);
+        setLoginError(response.message);
+      }
     } catch (error) {
-      console.log("Network Error");
+      console.log(error);
     }
   };
 
@@ -71,6 +79,7 @@ function App() {
           placeholder="Password"
         />
         <button type="submit">Sign in</button>
+        {loginError && <p className="error-text">{loginError}</p>}
         <p className="sign-up-text">
           Don't have an account?{" "}
           <button onClick={handleSignUpBtn}>Sign up, it's free!</button>

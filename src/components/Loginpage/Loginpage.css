@@ -1,0 +1,61 @@
+.main-bg {
+  background-image: url("https://images.unsplash.com/photo-1719820390502-e0823fcc739d?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(54, 53, 56, 0.3);
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 250px;
+}
+
+form > h2 {
+    text-align: center;
+    color: white;
+}
+
+form > input {
+  border: 0;
+  background-color: rgb(149, 146, 146);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+form > input::placeholder {
+  color: white;
+}
+
+form > button {
+  border: 0;
+  cursor: pointer;
+  background-color: #2b2b2b;
+  padding: 10px;
+  border-radius: 60px;
+  color: white;
+}
+
+.sign-up-text {
+  font-size: 10px;
+  text-align: center;
+  color: white;
+}
+
+.sign-up-text > button {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  font-size: 10px;
+  text-decoration: underline;
+  color: white;
+}

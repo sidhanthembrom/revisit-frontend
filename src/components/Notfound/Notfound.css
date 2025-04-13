@@ -4,12 +4,16 @@
   background-size: cover;
   background-position: bottom;
   padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.notfound-bg > .text-container {
+.notfound-text-container {
   background-color: rgba(54, 53, 56, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   color: white;
   text-align: center;
+  padding: 0 1rem;
 }
